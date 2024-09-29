@@ -14,3 +14,7 @@ print(f'Number of records: {record_count}')
 # Q3. Laptop brands
 number_of_laptop_brands = df['Brand'].nunique()
 print(number_of_laptop_brands)
+
+# Q4. Missing values
+missing = df.isnull().sum()
+print(missing)
