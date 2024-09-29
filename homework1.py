@@ -4,5 +4,5 @@ url = 'https://raw.githubusercontent.com/alexeygrigorev/datasets/master/laptops.
 
 df = pd.read_csv(url)
 
-# print(df.head())
-
+# Q1. Pandas version
+print(pd.__version__)
