@@ -11,3 +11,6 @@ print(pd.__version__)
 record_count = df.shape[0]
 print(f'Number of records: {record_count}')
 
+# Q3. Laptop brands
+number_of_laptop_brands = df['Brand'].nunique()
+print(number_of_laptop_brands)
