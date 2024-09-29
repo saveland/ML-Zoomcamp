@@ -18,3 +18,7 @@ print(number_of_laptop_brands)
 # Q4. Missing values
 missing = df.isnull().sum()
 print(missing)
+
+# Q5. Maximum final price
+Dell_max_final_price = df[df['Brand'] == 'Dell']['Final Price'].max()
+print(Dell_max_final_price)
