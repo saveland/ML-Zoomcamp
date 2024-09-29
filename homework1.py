@@ -6,3 +6,8 @@ df = pd.read_csv(url)
 
 # Q1. Pandas version
 print(pd.__version__)
+
+# Q2. Records count
+record_count = df.shape[0]
+print(f'Number of records: {record_count}')
+
