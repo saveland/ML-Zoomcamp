@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 
 url = 'https://raw.githubusercontent.com/alexeygrigorev/datasets/master/laptops.csv'
 
@@ -44,16 +45,26 @@ print(Screen_median_value)
 Innjoo = df[df['Brand'] == 'Innjoo']
 print(Innjoo)
 
-# 2. Select only columns RAM, Storage, Screen.
+# 2. Select only columns RAM, Storage, Screen
+RAM_storage_screen = df[df['Brand'] == 'Innjoo'][['RAM', 'Storage', 'Screen']]
+print(RAM_storage_screen)
 
-# 3 .Get the underlying NumPy array. Let's call it X.
+# 3. Get the underlying NumPy array. Let's call it X.
+X = RAM_storage_screen.to_numpy()
+print(X)
 
 # 4. Compute matrix-matrix multiplication between the transpose of X and X. To get the transpose, use X.T. Let's call the result XTX.
+XTX = np.dot(X.T, X)
 
-# 5. Compute the inverse of XTX.
+# 5. Compute the inverse of XTX
+XTX_inv = np.linalg.inv(XTX)
 
-# 6. Create an array y with values [1100, 1300, 800, 900, 1000, 1100].
+# 6. Create an array y
+y = np.array([1100, 1300, 800, 900, 1000, 1100])
 
-# 7. Multiply the inverse of XTX with the transpose of X, and then multiply the result by y. Call the result w.
+# 7. Multiply the inverse of XTX with the transpose of X, and then multiply the result by y
+w = np.dot(np.dot(XTX_inv, X.T), y)
 
-# 8. What's the sum of all the elements of the result?
+# 8. Compute the sum of all the elements of the result
+result_sum = np.sum(w)
+print(result_sum)
